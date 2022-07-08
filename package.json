@@ -16,6 +16,7 @@
   },
   "dependencies": {
     "core-js": "^3.23.3",
+    "cssnano": "^4.1.11",
     "fractional": "^1.0.0",
     "img": "^3.0.3",
     "regenerator-runtime": "^0.13.9"
