@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Nunito+Sans:400,600,700"
+      rel="stylesheet"
+    />
+    <link rel="shortcut icon" href="src/img/favicon.png" type="image/x-icon" />
+
+    <link rel="stylesheet" href="src/sass/main.scss" />
+    <script defer src="src/js/controller.js"></script>
+
+    <title>forkify // Search over 1,000,000 recipes</title>
+  </head>
+
+  <body>
+    <div class="container">
+      <header class="header">
+        <img src="src/img/logo.png" alt="Logo" class="header__logo" />
+        <form class="search">
+          <input
+            type="text"
+            class="search__field"
+            placeholder="Search over 1,000,000 recipes..."
+          />
+          <button class="btn search__btn">
+            <svg class="search__icon">
+              <use href="src/img/icons.svg#icon-search"></use>
+            </svg>
+            <span>Search</span>
+          </button>
+        </form>
+
+        <nav class="nav">
+          <ul class="nav__list">
+            <li class="nav__item">
+              <button class="nav__btn nav__btn--add-recipe">
+                <svg class="nav__icon">
+                  <use href="src/img/icons.svg#icon-edit"></use>
+                </svg>
+                <span>Add recipe</span>
+              </button>
+            </li>
+            <li class="nav__item">
+              <button class="nav__btn nav__btn--bookmarks">
+                <svg class="nav__icon">
+                  <use href="src/img/icons.svg#icon-bookmark"></use>
+                </svg>
+                <span>Bookmarks</span>
+              </button>
+              <div class="bookmarks">
+                <ul class="bookmarks__list">
+                  <div class="message">
+                    <div>
+                      <svg>
+                        <use href="src/img/icons.svg#icon-smile"></use>
+                      </svg>
+                    </div>
+                    <p>
+                      No bookmarks yet. Find a nice recipe and bookmark it :)
+                    </p>
+                  </div>
+
+                  <!-- <li class="preview">
+                    <a class="preview__link" href="#23456">
+                      <figure class="preview__fig">
+                        <img src="src/img/test-1.jpg" alt="Test" />
+                      </figure>
+                      <div class="preview__data">
+                        <h4 class="preview__name">
+                          Pasta with Tomato Cream ...
+                        </h4>
+                        <p class="preview__publisher">The Pioneer Woman</p>
+                      </div>
+                    </a>
+                  </li> -->
+                </ul>
+              </div>
+            </li>
+          </ul>
+        </nav>
+      </header>
+
+      <div class="search-results">
+        <ul class="results">
+          <!-- <li class="preview">
+            <a class="preview__link preview__link--active" href="#23456">
+              <figure class="preview__fig">
+                <img src="src/img/test-1.jpg" alt="Test" />
+              </figure>
+              <div class="preview__data">
+                <h4 class="preview__title">Pasta with Tomato Cream ...</h4>
+                <p class="preview__publisher">The Pioneer Woman</p>
+                <div class="preview__user-generated">
+                  <svg>
+                    <use href="src/img/icons.svg#icon-user"></use>
+                  </svg>
+                </div>
+              </div>
+            </a>
+          </li>-->
+        </ul>
+
+        <div class="pagination">
+          <!-- <button class="btn--inline pagination__btn--prev">
+            <svg class="search__icon">
+              <use href="src/img/icons.svg#icon-arrow-left"></use>
+            </svg>
+            <span>Page 1</span>
+          </button>
+          <button class="btn--inline pagination__btn--next">
+            <span>Page 3</span>
+            <svg class="search__icon">
+              <use href="src/img/icons.svg#icon-arrow-right"></use>
+            </svg>
+          </button> -->
+        </div>
+
+        <p class="copyright">
+          &copy; Copyright by
+          <a
+            class="twitter-link"
+            target="_blank"
+            href="https://twitter.com/jonasschmedtman"
+            >Jonas Schmedtmann</a
+          >. Use for learning or your portfolio. Don't use to teach. Don't claim
+          as your own.
+        </p>
+      </div>
+
+      <div class="recipe">
+        <div class="message">
+          <div>
+            <svg>
+              <use href="src/img/icons.svg#icon-smile"></use>
+            </svg>
+          </div>
+          <p>Start by searching for a recipe or an ingredient. Have fun!</p>
+        </div>
+
+        <div class="spinner">
+          <svg>
+            <use href="src/img/icons.svg#icon-loader"></use>
+          </svg>
+        </div>
+
+        <!-- <div class="error">
+            <div>
+              <svg>
+                <use href="src/img/icons.svg#icon-alert-triangle"></use>
+              </svg>
+            </div>
+            <p>No recipes found for your query. Please try again!</p>
+          </div> -->
+
+        <!--
+        <figure class="recipe__fig">
+          <img src="src/img/test-1.jpg" alt="Tomato" class="recipe__img" />
+          <h1 class="recipe__title">
+            <span>Pasta with tomato cream sauce</span>
+          </h1>
+        </figure>
+
+        <div class="recipe__details">
+          <div class="recipe__info">
+            <svg class="recipe__info-icon">
+              <use href="src/img/icons.svg#icon-clock"></use>
+            </svg>
+            <span class="recipe__info-data recipe__info-data--minutes">45</span>
+            <span class="recipe__info-text">minutes</span>
+          </div>
+          <div class="recipe__info">
+            <svg class="recipe__info-icon">
+              <use href="src/img/icons.svg#icon-users"></use>
+            </svg>
+            <span class="recipe__info-data recipe__info-data--people">4</span>
+            <span class="recipe__info-text">servings</span>
+
+            <div class="recipe__info-buttons">
+              <button class="btn--tiny btn--increase-servings">
+                <svg>
+                  <use href="src/img/icons.svg#icon-minus-circle"></use>
+                </svg>
+              </button>
+              <button class="btn--tiny btn--increase-servings">
+                <svg>
+                  <use href="src/img/icons.svg#icon-plus-circle"></use>
+                </svg>
+              </button>
+            </div>
+          </div>
+
+          <div class="recipe__user-generated">
+            <svg>
+              <use href="src/img/icons.svg#icon-user"></use>
+            </svg>
+          </div>
+          <button class="btn--round">
+            <svg class="">
+              <use href="src/img/icons.svg#icon-bookmark-fill"></use>
+            </svg>
+          </button>
+        </div>
+
+        <div class="recipe__ingredients">
+          <h2 class="heading--2">Recipe ingredients</h2>
+          <ul class="recipe__ingredient-list">
+            <li class="recipe__ingredient">
+              <svg class="recipe__icon">
+                <use href="src/img/icons.svg#icon-check"></use>
+              </svg>
+              <div class="recipe__quantity">1000</div>
+              <div class="recipe__description">
+                <span class="recipe__unit">g</span>
+                pasta
+              </div>
+            </li>
+
+            <li class="recipe__ingredient">
+              <svg class="recipe__icon">
+                <use href="src/img/icons.svg#icon-check"></use>
+              </svg>
+              <div class="recipe__quantity">0.5</div>
+              <div class="recipe__description">
+                <span class="recipe__unit">cup</span>
+                ricotta cheese
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="recipe__directions">
+          <h2 class="heading--2">How to cook it</h2>
+          <p class="recipe__directions-text">
+            This recipe was carefully designed and tested by
+            <span class="recipe__publisher">The Pioneer Woman</span>. Please check out
+            directions at their website.
+          </p>
+          <a
+            class="btn--small recipe__btn"
+            href="http://thepioneerwoman.com/cooking/pasta-with-tomato-cream-sauce/"
+            target="_blank"
+          >
+            <span>Directions</span>
+            <svg class="search__icon">
+              <use href="src/img/icons.svg#icon-arrow-right"></use>
+            </svg>
+          </a>
+        </div>
+        -->
+      </div>
+    </div>
+
+    <div class="overlay hidden"></div>
+    <div class="add-recipe-window hidden">
+      <button class="btn--close-modal">&times;</button>
+      <form class="upload">
+        <div class="upload__column">
+          <h3 class="upload__heading">Recipe data</h3>
+          <label>Title</label>
+          <input value="Nigerian fufu" required name="title" type="text" />
+          <label>URL</label>
+          <input
+            value="https://cheflolaskitchen.com/fufu-recipe-how-to-make-fufu/"
+            required
+            name="sourceUrl"
+            type="text"
+          />
+          <label>Image URL</label>
+          <input
+            value="data:image/jpeg;base64,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"
+            required
+            name="image"
+            type="text"
+          />
+          <label>Publisher</label>
+          <input
+            value="https://www.thespruceeats.com/yam-fufu-2138088"
+            required
+            name="publisher"
+            type="text"
+          />
+          <label>Prep time</label>
+          <input value="23" required name="cookingTime" type="number" />
+          <label>Servings</label>
+          <input value="23" required name="servings" type="number" />
+        </div>
+
+        <div class="upload__column">
+          <h3 class="upload__heading">Ingredients</h3>
+          <label>Ingredient 1</label>
+          <input
+            value="0.5,kg,Rice"
+            type="text"
+            required
+            name="ingredient-1"
+            placeholder="Format: 'Quantity,Unit,Description'"
+          />
+          <label>Ingredient 2</label>
+          <input
+            value="1,,Avocado"
+            type="text"
+            name="ingredient-2"
+            placeholder="Format: 'Quantity,Unit,Description'"
+          />
+          <label>Ingredient 3</label>
+          <input
+            value=",,salt"
+            type="text"
+            name="ingredient-3"
+            placeholder="Format: 'Quantity,Unit,Description'"
+          />
+          <label>Ingredient 4</label>
+          <input
+            type="text"
+            name="ingredient-4"
+            placeholder="Format: 'Quantity,Unit,Description'"
+          />
+          <label>Ingredient 5</label>
+          <input
+            type="text"
+            name="ingredient-5"
+            placeholder="Format: 'Quantity,Unit,Description'"
+          />
+          <label>Ingredient 6</label>
+          <input
+            type="text"
+            name="ingredient-6"
+            placeholder="Format: 'Quantity,Unit,Description'"
+          />
+        </div>
+
+        <button class="btn upload__btn">
+          <svg>
+            <use href="src/img/icons.svg#icon-upload-cloud"></use>
+          </svg>
+          <span>Upload</span>
+        </button>
+      </form>
+    </div>
+  </body>
+</html>
