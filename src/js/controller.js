@@ -137,13 +137,17 @@ const controlAddRecipe = async function (newRecipe) {
 
     previewView.render(model.state.recipe);
     // close window form
-    setTimeout(function () {
-      addReceipeView.toggleWindow();
-    }, MODEL_CLOSE);
+    // setTimeout(function () {
+    //   addReceipeView.toggleWindow();
+    // }, MODEL_CLOSE);
   } catch (err) {
     // console.error(err);
     addReceipeView.errorMsg(err.message);
   }
+};
+
+const fix = function () {
+  console.log(`welcome to the app`);
 };
 
 // the init is an event handeler that will load the hash and the load event
@@ -155,5 +159,6 @@ const init = function () {
   searchView.addhandelersearch(controlSearchResult);
   padinationView.addhandlerClick(controlpadination);
   addReceipeView._addHandelerUpload(controlAddRecipe);
+  fix();
 };
 init();
