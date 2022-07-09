@@ -33,7 +33,7 @@ const recipe = async function () {
     await model.loadRecipe(id);
 
     resultView.update(model.getSearchResultPage());
-    recipeView.renderSpinner();
+    // recipeView.renderSpinner();
 
     const recipes = model.state.recipe;
 
@@ -50,7 +50,7 @@ recipe();
 export const controlSearchResult = async function () {
   try {
     // get search query or the item being seached for the query is shown at
-    resultView.renderSpinner();
+    // resultView.renderSpinner();
 
     const query = searchView.searchInput();
 
