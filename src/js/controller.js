@@ -13,10 +13,6 @@ import { async } from 'regenerator-runtime';
 import { add, result } from 'lodash';
 import previewView from './views/previewView.js';
 
-if (module.hot) {
-  module.hot.accept();
-}
-
 // https://forkify-api.herokuapp.com/v2
 
 ///////////////////////////////////////
@@ -28,22 +24,21 @@ const recipe = async function () {
     // console.log(id);
 
     if (!id) return;
-
     // calling the spinner function
-    await model.loadRecipe(id);
+    recipeView.renderSpinner();
 
     resultView.update(model.getSearchResultPage());
-    // recipeView.renderSpinner();
+
+    await model.loadRecipe(id);
 
     const recipes = model.state.recipe;
-
-    // recipeView.render(recipes);
+    recipeView.render(recipes);
   } catch (err) {
     recipeView.errorMsg();
   }
 };
 
-recipe();
+// recipe();
 
 // the innit handeler is outside the receipt function because it determines the loading and hashchange event
 
@@ -55,6 +50,7 @@ export const controlSearchResult = async function () {
     const query = searchView.searchInput();
 
     if (!query) return;
+    resultView.renderSpinner();
 
     // load query
     await model.loadSearchResult(query);
@@ -75,6 +71,8 @@ export const controlSearchResult = async function () {
 // 🔥🔥🔥 really important this will change then grouped item displyed of the search item into different groups
 
 const controlpadination = function (goTOpage) {
+  resultView.renderSpinner();
+
   // render new result
   resultView.render(model.getSearchResultPage(goTOpage));
 
@@ -116,11 +114,9 @@ const controlBookmark = function (e) {
 const controlAddRecipe = async function (newRecipe) {
   try {
     // loading spinner
-    // addReceipeView.renderSpinner();
+    addReceipeView.renderSpinner();
 
-    // console.log(newRecipe);
     await model.uploadReceipe(newRecipe);
-    // console.log(model.state.recipe);
 
     recipeView.render(model.state.recipe);
 
