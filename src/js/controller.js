@@ -25,7 +25,7 @@ const recipe = async function () {
 
     if (!id) return;
     // calling the spinner function
-    recipeView.renderSpinner();
+    // recipeView.renderSpinner();
 
     resultView.update(model.getSearchResultPage());
 
@@ -121,7 +121,7 @@ const controlAddRecipe = async function (newRecipe) {
     recipeView.render(model.state.recipe);
 
     // sucess message
-    addReceipeView.successMsg();
+    // addReceipeView.successMsg();
 
     // add new element to the bookmark view
     bookmarkView.render(model.state.bookmark);
