@@ -20312,7 +20312,9 @@ var bookmarkView = /*#__PURE__*/function (_views) {
   _createClass(bookmarkView, [{
     key: "addHandelerRender",
     value: function addHandelerRender(hander) {
-      window.addEventListener("load", function (e) {// hander()
+      window.addEventListener("load", function (e) {
+        e.preventDefault();
+        hander();
       });
     }
   }, {
@@ -36616,7 +36618,6 @@ var addReceipeView = /*#__PURE__*/function (_views) {
   var _super = _createSuper(addReceipeView);
 
   // the error message for recipe
-  //   _sucMessage = 'recipe was successfully uploaded';
   function addReceipeView() {
     var _this;
 
@@ -36658,9 +36659,7 @@ var addReceipeView = /*#__PURE__*/function (_views) {
         var dataArr = _toConsumableArray(new FormData(this)); //   the fromentries takes an array of item and convert it to an object
 
 
-        var data = Object.fromEntries(dataArr); //   const data = Object.entries(dataArr);
-        //   console.log(data);
-
+        var data = Object.fromEntries(dataArr);
         handeler(data);
       });
     }
@@ -36683,9 +36682,6 @@ var addReceipeView = /*#__PURE__*/function (_views) {
 
       this._overlay.addEventListener('click', this.toggleWindow.bind(this));
     }
-  }, {
-    key: "_generateHtml",
-    value: function _generateHtml() {}
   }]);
 
   return addReceipeView;
@@ -36933,31 +36929,32 @@ var controlAddRecipe = /*#__PURE__*/function () {
             _previewView.default.render(model.state.recipe); // close window form
 
 
-            setTimeout(function () {
-              _addReceipeView.default.toggleWindow();
-            }, _config.MODEL_CLOSE);
-            _context3.next = 16;
+            _context3.next = 15;
             break;
 
-          case 13:
-            _context3.prev = 13;
+          case 12:
+            _context3.prev = 12;
             _context3.t0 = _context3["catch"](0);
 
             // console.error(err);
             _addReceipeView.default.errorMsg(_context3.t0.message);
 
-          case 16:
+          case 15:
           case "end":
             return _context3.stop();
         }
       }
-    }, _callee3, null, [[0, 13]]);
+    }, _callee3, null, [[0, 12]]);
   }));
 
   return function controlAddRecipe(_x) {
     return _ref3.apply(this, arguments);
   };
-}(); // the init is an event handeler that will load the hash and the load event
+}();
+
+var fix = function fix() {
+  console.log("welcome to the app");
+}; // the init is an event handeler that will load the hash and the load event
 
 
 var init = function init() {
@@ -36974,6 +36971,8 @@ var init = function init() {
   _paginationView.default.addhandlerClick(controlpadination);
 
   _addReceipeView.default._addHandelerUpload(controlAddRecipe);
+
+  fix();
 };
 
 init();
@@ -37005,7 +37004,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "57363" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "64692" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

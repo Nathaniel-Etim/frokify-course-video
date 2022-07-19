@@ -24,8 +24,9 @@ const recipe = async function () {
     // console.log(id);
 
     if (!id) return;
+
     // calling the spinner function
-    // recipeView.renderSpinner();
+    recipeView.renderSpinner();
 
     resultView.update(model.getSearchResultPage());
 
@@ -50,6 +51,7 @@ export const controlSearchResult = async function () {
     const query = searchView.searchInput();
 
     if (!query) return;
+
     resultView.renderSpinner();
 
     // load query
@@ -121,7 +123,7 @@ const controlAddRecipe = async function (newRecipe) {
     recipeView.render(model.state.recipe);
 
     // sucess message
-    // addReceipeView.successMsg();
+    addReceipeView.successMsg();
 
     // add new element to the bookmark view
     bookmarkView.render(model.state.bookmark);
@@ -137,9 +139,6 @@ const controlAddRecipe = async function (newRecipe) {
 
     previewView.render(model.state.recipe);
     // close window form
-    // setTimeout(function () {
-    //   addReceipeView.toggleWindow();
-    // }, MODEL_CLOSE);
   } catch (err) {
     // console.error(err);
     addReceipeView.errorMsg(err.message);

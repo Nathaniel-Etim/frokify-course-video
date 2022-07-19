@@ -13,7 +13,9 @@ class bookmarkView extends views {
 
   addHandelerRender(hander) {
     window.addEventListener(`load`, function (e) {
-      // hander()
+      e.preventDefault();
+
+      hander();
     });
   }
 

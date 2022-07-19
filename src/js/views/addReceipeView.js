@@ -17,7 +17,6 @@ class addReceipeView extends views {
   _errorMsg = `recipe not found, try another search`;
 
   _successmsg = 'recipe was successfully uploaded';
-  //   _sucMessage = 'recipe was successfully uploaded';
 
   constructor() {
     super();
@@ -25,17 +24,16 @@ class addReceipeView extends views {
     this._addHandelerShowWindow();
     this._addHandelerUpload();
   }
+
   _addHandelerUpload(handeler) {
     this._parentElement.addEventListener('submit', function (e) {
       e.preventDefault();
-      //   this will convert all values into a string(new formData(this(we use this because the info is inside the parent elememnt )))
 
+      //   this will convert all values into a string(new formData(this(we use this because the info is inside the parent elememnt )))
       const dataArr = [...new FormData(this)];
 
       //   the fromentries takes an array of item and convert it to an object
       const data = Object.fromEntries(dataArr);
-      //   const data = Object.entries(dataArr);
-      //   console.log(data);
       handeler(data);
     });
   }
@@ -51,11 +49,8 @@ class addReceipeView extends views {
 
   _addHandelerHideWindow() {
     this._btnClose.addEventListener('click', this.toggleWindow.bind(this));
-
     this._overlay.addEventListener('click', this.toggleWindow.bind(this));
   }
-
-  _generateHtml() {}
 }
 
 export default new addReceipeView();
