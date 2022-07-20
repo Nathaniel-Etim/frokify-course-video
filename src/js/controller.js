@@ -8,7 +8,6 @@ import searchView from './views/searchView.js';
 import 'core-js/stable';
 import 'regenerator-runtime/runtime';
 import addReceipeView from './views/addReceipeView.js';
-
 import { async } from 'regenerator-runtime';
 import { add, result } from 'lodash';
 import previewView from './views/previewView.js';
@@ -123,7 +122,7 @@ const controlAddRecipe = async function (newRecipe) {
     recipeView.render(model.state.recipe);
 
     // sucess message
-    addReceipeView.successMsg();
+    // addReceipeView.successMsg();
 
     // add new element to the bookmark view
     bookmarkView.render(model.state.bookmark);
@@ -145,10 +144,6 @@ const controlAddRecipe = async function (newRecipe) {
   }
 };
 
-const fix = function () {
-  console.log(`welcome to the app`);
-};
-
 // the init is an event handeler that will load the hash and the load event
 const init = function () {
   bookmarkView.addHandelerRender(controlBookmark);
@@ -158,6 +153,5 @@ const init = function () {
   searchView.addhandelersearch(controlSearchResult);
   padinationView.addhandlerClick(controlpadination);
   addReceipeView._addHandelerUpload(controlAddRecipe);
-  fix();
 };
 init();

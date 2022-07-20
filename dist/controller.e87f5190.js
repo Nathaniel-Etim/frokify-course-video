@@ -227,17 +227,20 @@ var views = /*#__PURE__*/function () {
 
       this._parentElement.insertAdjacentHTML("afterbegin", html);
     } // success message
+    // successMsg(message = this._successmsg) {
+    //   const html = `
+    //           <div class="message">
+    //           <div>
+    //           <svg>
+    //           <use href="${icons}#icon-alert-smile"></use>
+    //             </svg>
+    //           </div>
+    //           <p>${message}!</p>
+    //         </div>`;
+    //   this._clear();
+    //   this._parentElement.insertAdjacentHTML(`afterbegin`, html);
+    // }
 
-  }, {
-    key: "successMsg",
-    value: function successMsg() {
-      var message = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : this._successmsg;
-      var html = "\n            <div class=\"message\">\n            <div>\n            <svg>\n            <use href=\"".concat(_icons.default, "#icon-alert-smile\"></use>\n              </svg>\n            </div>\n            <p>").concat(message, "!</p>\n          </div>");
-
-      this._clear();
-
-      this._parentElement.insertAdjacentHTML("afterbegin", html);
-    }
   }]);
 
   return views;
@@ -717,7 +720,7 @@ var recipeView = /*#__PURE__*/function (_views) {
   }, {
     key: "_ingredients",
     value: function _ingredients(ing) {
-      return " <li class=\"recipe__ingredient\">\n      <svg class=\"recipe__icon\">\n        <use href=\"\"></use>\n      </svg>\n      <div class=\"recipe__quantity\">".concat(ing.quantity ? new _fractional.Fraction(ing.quantity).toString() : "", "</div>\n      <div class=\"recipe__description\">\n        <span class=\"recipe__unit\">").concat(ing.unit, "</span>\n        ").concat(ing.description, "\n      </div>\n    </li>\n    ");
+      return " <li class=\"recipe__ingredient\">\n      <svg class=\"recipe__icon\">\n        <use href=\"\"></use>\n      </svg>\n      <div class=\"recipe__quantity\">".concat(ing.quantity ? new _fractional.fractional(ing.quantity).toString() : "", "</div>\n      <div class=\"recipe__description\">\n        <span class=\"recipe__unit\">").concat(ing.unit, "</span>\n        ").concat(ing.description, "\n      </div>\n    </li>\n    ");
     }
   }]);
 
@@ -36912,9 +36915,8 @@ var controlAddRecipe = /*#__PURE__*/function () {
 
           case 4:
             _recipeViews.default.render(model.state.recipe); // sucess message
-
-
-            _addReceipeView.default.successMsg(); // add new element to the bookmark view
+            // addReceipeView.successMsg();
+            // add new element to the bookmark view
 
 
             _bookmarkView.default.render(model.state.bookmark); // changeurl id
@@ -36929,32 +36931,28 @@ var controlAddRecipe = /*#__PURE__*/function () {
             _previewView.default.render(model.state.recipe); // close window form
 
 
-            _context3.next = 15;
+            _context3.next = 14;
             break;
 
-          case 12:
-            _context3.prev = 12;
+          case 11:
+            _context3.prev = 11;
             _context3.t0 = _context3["catch"](0);
 
             // console.error(err);
             _addReceipeView.default.errorMsg(_context3.t0.message);
 
-          case 15:
+          case 14:
           case "end":
             return _context3.stop();
         }
       }
-    }, _callee3, null, [[0, 12]]);
+    }, _callee3, null, [[0, 11]]);
   }));
 
   return function controlAddRecipe(_x) {
     return _ref3.apply(this, arguments);
   };
-}();
-
-var fix = function fix() {
-  console.log("welcome to the app");
-}; // the init is an event handeler that will load the hash and the load event
+}(); // the init is an event handeler that will load the hash and the load event
 
 
 var init = function init() {
@@ -36971,8 +36969,6 @@ var init = function init() {
   _paginationView.default.addhandlerClick(controlpadination);
 
   _addReceipeView.default._addHandelerUpload(controlAddRecipe);
-
-  fix();
 };
 
 init();
@@ -37004,7 +37000,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "64692" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "51857" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

@@ -87,17 +87,17 @@ export default class views {
   }
 
   // success message
-  successMsg(message = this._successmsg) {
-    const html = `
-            <div class="message">
-            <div>
-            <svg>
-            <use href="${icons}#icon-alert-smile"></use>
-              </svg>
-            </div>
-            <p>${message}!</p>
-          </div>`;
-    this._clear();
-    this._parentElement.insertAdjacentHTML(`afterbegin`, html);
-  }
+  // successMsg(message = this._successmsg) {
+  //   const html = `
+  //           <div class="message">
+  //           <div>
+  //           <svg>
+  //           <use href="${icons}#icon-alert-smile"></use>
+  //             </svg>
+  //           </div>
+  //           <p>${message}!</p>
+  //         </div>`;
+  //   this._clear();
+  //   this._parentElement.insertAdjacentHTML(`afterbegin`, html);
+  // }
 }
