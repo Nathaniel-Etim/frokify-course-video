@@ -20,9 +20,9 @@ class searchView {
   // this listen for the submit event this is being called in the control and it calls the promise
 
   addhandelersearch(handler) {
-    this._parentElement.addEventListener(`submit`, function (e) {
+    this._parentElement.addEventListener('submit', function (e) {
       e.preventDefault();
-
+      console.log(`event is here`);
       handler();
     });
   }

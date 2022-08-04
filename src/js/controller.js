@@ -42,12 +42,13 @@ const recipe = async function () {
 
 // the innit handeler is outside the receipt function because it determines the loading and hashchange event
 
-export const controlSearchResult = async function () {
+export const controlSearchResult = async function (e) {
   try {
     // get search query or the item being seached for the query is shown at
-    // resultView.renderSpinner();
-
+    resultView.renderSpinner();
+    e.preventDefault();
     const query = searchView.searchInput();
+    console.log(query);
 
     if (!query) return;
 

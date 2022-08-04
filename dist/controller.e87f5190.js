@@ -720,7 +720,7 @@ var recipeView = /*#__PURE__*/function (_views) {
   }, {
     key: "_ingredients",
     value: function _ingredients(ing) {
-      return " <li class=\"recipe__ingredient\">\n      <svg class=\"recipe__icon\">\n        <use href=\"\"></use>\n      </svg>\n      <div class=\"recipe__quantity\">".concat(ing.quantity ? new _fractional.fractional(ing.quantity).toString() : "", "</div>\n      <div class=\"recipe__description\">\n        <span class=\"recipe__unit\">").concat(ing.unit, "</span>\n        ").concat(ing.description, "\n      </div>\n    </li>\n    ");
+      return " <li class=\"recipe__ingredient\">\n      <svg class=\"recipe__icon\">\n        <use href=\"\"></use>\n      </svg>\n      <div class=\"recipe__quantity\">".concat(ing.quantity ? new _fractional.Fraction(ing.quantity).toString() : "", "</div>\n      <div class=\"recipe__description\">\n        <span class=\"recipe__unit\">").concat(ing.unit, "</span>\n        ").concat(ing.description, "\n      </div>\n    </li>\n    ");
     }
   }]);
 
@@ -21571,8 +21571,9 @@ var searchView = /*#__PURE__*/function () {
   }, {
     key: "addhandelersearch",
     value: function addhandelersearch(handler) {
-      this._parentElement.addEventListener("submit", function (e) {
+      this._parentElement.addEventListener('submit', function (e) {
         e.preventDefault();
+        console.log("event is here");
         handler();
       });
     }
@@ -36800,32 +36801,36 @@ var recipe = /*#__PURE__*/function () {
 
 
 var controlSearchResult = /*#__PURE__*/function () {
-  var _ref2 = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee2() {
+  var _ref2 = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee2(e) {
     var query, request;
     return _regeneratorRuntime().wrap(function _callee2$(_context2) {
       while (1) {
         switch (_context2.prev = _context2.next) {
           case 0:
             _context2.prev = 0;
+
             // get search query or the item being seached for the query is shown at
-            // resultView.renderSpinner();
+            _resultView.default.renderSpinner();
+
+            e.preventDefault();
             query = _searchView.default.searchInput();
+            console.log(query);
 
             if (query) {
-              _context2.next = 4;
+              _context2.next = 7;
               break;
             }
 
             return _context2.abrupt("return");
 
-          case 4:
+          case 7:
             _resultView.default.renderSpinner(); // load query
 
 
-            _context2.next = 7;
+            _context2.next = 10;
             return model.loadSearchResult(query);
 
-          case 7:
+          case 10:
             // render result
             request = model.state.search.results;
 
@@ -36836,23 +36841,23 @@ var controlSearchResult = /*#__PURE__*/function () {
 
             _paginationView.default.render(model.state.search);
 
-            _context2.next = 16;
+            _context2.next = 19;
             break;
 
-          case 13:
-            _context2.prev = 13;
+          case 16:
+            _context2.prev = 16;
             _context2.t0 = _context2["catch"](0);
             throw _context2.t0;
 
-          case 16:
+          case 19:
           case "end":
             return _context2.stop();
         }
       }
-    }, _callee2, null, [[0, 13]]);
+    }, _callee2, null, [[0, 16]]);
   }));
 
-  return function controlSearchResult() {
+  return function controlSearchResult(_x) {
     return _ref2.apply(this, arguments);
   };
 }(); // 🔥🔥🔥 really important this will change then grouped item displyed of the search item into different groups
@@ -36949,7 +36954,7 @@ var controlAddRecipe = /*#__PURE__*/function () {
     }, _callee3, null, [[0, 11]]);
   }));
 
-  return function controlAddRecipe(_x) {
+  return function controlAddRecipe(_x2) {
     return _ref3.apply(this, arguments);
   };
 }(); // the init is an event handeler that will load the hash and the load event
@@ -37000,7 +37005,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "51857" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "52962" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
